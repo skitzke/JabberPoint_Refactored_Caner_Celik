@@ -1,6 +1,7 @@
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
+import java.io.Serial;
 import javax.swing.JFrame;
 
 /**
@@ -15,9 +16,10 @@ import javax.swing.JFrame;
 */
 
 public class SlideViewerFrame extends JFrame {
+	@Serial
 	private static final long serialVersionUID = 3227L;
 	
-	private static final String JABTITLE = "Jabberpoint 1.6 - OU";
+	private static final String TITLE = "Jabberpoint 1.6 - OU";
 	public final static int WIDTH = 1200;
 	public final static int HEIGHT = 800;
 	
@@ -31,7 +33,7 @@ public class SlideViewerFrame extends JFrame {
 //Setup the GUI
 	public void setupWindow(SlideViewerComponent 
 			slideViewerComponent, Presentation presentation) {
-		setTitle(JABTITLE);
+		setTitle(TITLE);
 		addWindowListener(new WindowAdapter() {
 				public void windowClosing(WindowEvent e) {
 					System.exit(0);

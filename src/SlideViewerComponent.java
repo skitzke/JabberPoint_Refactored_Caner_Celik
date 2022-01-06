@@ -3,6 +3,7 @@ import java.awt.Font;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.io.Serial;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
@@ -20,13 +21,14 @@ import javax.swing.JFrame;
 public class SlideViewerComponent extends JComponent {
 		
 	private Slide slide; //The current slide
-	private Font labelFont = null; //The font for labels
-	private Presentation presentation = null; //The presentation
-	private JFrame frame = null;
+	private final Font labelFont; //The font for labels
+	private Presentation presentation; //The presentation
+	private final JFrame frame;
 	
+	@Serial
 	private static final long serialVersionUID = 227L;
 	
-	private static final Color BGCOLOR = Color.white;
+	private static final Color BACKCOLOR = Color.white;
 	private static final Color COLOR = Color.black;
 	private static final String FONTNAME = "Dialog";
 	private static final int FONTSTYLE = Font.BOLD;
@@ -35,7 +37,7 @@ public class SlideViewerComponent extends JComponent {
 	private static final int YPOS = 20;
 
 	public SlideViewerComponent(Presentation pres, JFrame frame) {
-		setBackground(BGCOLOR); 
+		setBackground(BACKCOLOR);
 		presentation = pres;
 		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
 		this.frame = frame;
@@ -58,7 +60,7 @@ public class SlideViewerComponent extends JComponent {
 
 //Draw the slide
 	public void paintComponent(Graphics g) {
-		g.setColor(BGCOLOR);
+		g.setColor(BACKCOLOR);
 		g.fillRect(0, 0, getSize().width, getSize().height);
 		if (presentation.getSlideNumber() < 0 || slide == null) {
 			return;

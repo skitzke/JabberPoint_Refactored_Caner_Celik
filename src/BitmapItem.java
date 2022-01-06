@@ -22,13 +22,13 @@ import java.io.IOException;
 
 public class BitmapItem extends SlideItem {
   private BufferedImage bufferedImage;
-  private String imageName;
-  
+  private final String imageName;
+
   protected static final String FILE = "File ";
   protected static final String NOTFOUND = " not found";
 
   //Change this path to the exact path to the image, then the image will be displayed on the third slide
-  private String path = "C:/Users/W10/Desktop/Object Oriented Design/Jabberpoint_Sourcecode_Studenten/src/Images/JabberPoint.jpg";
+  private final String path = "C:/Users/W10/Desktop/Object Oriented Design/Jabberpoint_Sourcecode_Studenten/src/Images/JabberPoint.jpg";
 
 
   	//level indicates the item-level; name indicates the name of the file with the image

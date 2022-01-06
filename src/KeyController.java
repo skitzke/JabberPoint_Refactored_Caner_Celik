@@ -19,18 +19,13 @@ public class KeyController extends KeyAdapter {
 	}
 
 	public void keyPressed(KeyEvent keyEvent) {
-		switch(keyEvent.getKeyCode()) {
-			case KeyEvent.VK_RIGHT:
-				presentation.nextSlide();
-				break;
-			case KeyEvent.VK_LEFT:
-				presentation.prevSlide();
-				break;
-			case KeyEvent.VK_ESCAPE:
-				System.exit(0);
-				break; //Should not be reached
-			default:
-				break;
+		switch (keyEvent.getKeyCode()) {
+			case KeyEvent.VK_RIGHT -> presentation.nextSlide();
+			case KeyEvent.VK_LEFT -> presentation.prevSlide();
+			case KeyEvent.VK_ESCAPE -> System.exit(0);
+			//Should not be reached
+			default -> {
+			}
 		}
 	}
 }

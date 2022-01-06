@@ -53,7 +53,7 @@ public class XMLAccessor extends Accessor {
     }
 
 	public void loadFile(Presentation presentation, String filename) throws IOException {
-		int slideNumber, itemNumber, max = 0, maxItems = 0;
+		int slideNumber, itemNumber, max, maxItems;
 		try {
 			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();    
 			Document document = builder.parse(new File(filename)); //Create a JDOM document
@@ -77,7 +77,7 @@ public class XMLAccessor extends Accessor {
 			}
 		} 
 		catch (IOException iox) {
-			System.err.println(iox.toString());
+			iox.printStackTrace();
 		}
 		catch (SAXException sax) {
 			System.err.println(sax.getMessage());
@@ -90,10 +90,10 @@ public class XMLAccessor extends Accessor {
 	protected void loadSlideItem(Slide slide, Element item) {
 		int level = 1; // default
 		NamedNodeMap attributes = item.getAttributes();
-		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
-		if (leveltext != null) {
+		String levelText = attributes.getNamedItem(LEVEL).getTextContent();
+		if (levelText != null) {
 			try {
-				level = Integer.parseInt(leveltext);
+				level = Integer.parseInt(levelText);
 			}
 			catch(NumberFormatException x) {
 				System.err.println(NFE);
@@ -127,7 +127,7 @@ public class XMLAccessor extends Accessor {
 			out.println("<title>" + slide.getTitle() + "</title>");
 			Vector<SlideItem> slideItems = slide.getSlideItems();
 			for (int itemNumber = 0; itemNumber<slideItems.size(); itemNumber++) {
-				SlideItem slideItem = (SlideItem) slideItems.elementAt(itemNumber);
+				SlideItem slideItem = slideItems.elementAt(itemNumber);
 				out.print("<item kind="); 
 				if (slideItem instanceof TextItem) {
 					out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");
