@@ -80,6 +80,7 @@ public class MenuController extends MenuBar {
 			}
 		});
 		fileMenu.addSeparator();
+		// changed ActionListeners to lambda actionEvents, this is for EXIT,VIEW,NEXT,PREV,GOTO
 		fileMenu.add(menuItem = mkMenuItem(EXIT));
 		menuItem.addActionListener(actionEvent -> presentation.exit(0));
 		add(fileMenu);
@@ -92,6 +93,7 @@ public class MenuController extends MenuBar {
 		menuItem.addActionListener(actionEvent -> {
 			String pageNumberStr = JOptionPane.showInputDialog(PAGENR);
 			int pageNumber = Integer.parseInt(pageNumberStr);
+			// Made it so that if a user uses GoTo, the amount of slides inside the presentation can not exceed or go below the number entered in GoTo
 			if (pageNumber > presentation.getSize())
 			{
 				System.out.println("There are no more slides, the maximum is " + presentation.getSize());
