@@ -89,7 +89,7 @@ public class Presentation {
 		if (number < 0 || number >= getSize()){
 			return null;
 	    }
-			return (Slide)showList.get(number);
+			return showList.get(number);
 	}
 
 	//Return the current slide
