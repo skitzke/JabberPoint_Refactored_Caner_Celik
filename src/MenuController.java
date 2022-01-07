@@ -91,19 +91,26 @@ public class MenuController extends MenuBar {
 		menuItem.addActionListener(actionEvent -> presentation.prevSlide());
 		viewMenu.add(menuItem = mkMenuItem(GOTO));
 		menuItem.addActionListener(actionEvent -> {
-			String pageNumberStr = JOptionPane.showInputDialog(PAGENR);
-			int pageNumber = Integer.parseInt(pageNumberStr);
-			// Made it so that if a user uses GoTo, the amount of slides inside the presentation can not exceed or go below the number entered in GoTo
-			if (pageNumber > presentation.getSize())
-			{
-				System.out.println("There are no more slides, the maximum is " + presentation.getSize());
+			String pageNumberStr = JOptionPane.showInputDialog(null, PAGENR);
+			try {
+				int pageNumber = Integer.parseInt(pageNumberStr);
+				// Made it so that if a user uses GoTo, the amount of slides inside the presentation can not exceed or go below the number entered in GoTo
+				if (pageNumber > presentation.getSize())
+				{
+					System.out.println("There are no more slides, the maximum is " + presentation.getSize());
+				}
+				else if (pageNumber <= 0)
+				{
+					System.out.println("There are no more slides, the minimum is 1");
+
+				}
+				else {
+					presentation.setSlideNumber(pageNumber - 1);
+				}
 			}
-			else if (pageNumber <= 0)
+			catch (Exception e)
 			{
-				System.out.println("There are no more slides, the minimum is 1");
-			}
-			else {
-				presentation.setSlideNumber(pageNumber - 1);
+				System.out.println("DOESNT WOOOOOOOOOOORK");
 			}
 		});
 		add(viewMenu);
