@@ -20,6 +20,7 @@ public class KeyController extends KeyAdapter {
 
 	public void keyPressed(KeyEvent keyEvent) {
 		switch (keyEvent.getKeyCode()) {
+			//Keys changed to appropriate right arrow, left arrow and escape.
 			case KeyEvent.VK_RIGHT -> presentation.nextSlide();
 			case KeyEvent.VK_LEFT -> presentation.prevSlide();
 			case KeyEvent.VK_ESCAPE -> System.exit(0);
