@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 public class AboutBox {
 	public static void show(Frame parent) {
+		//Text is now in a formate that is readable
 		JOptionPane.showMessageDialog(parent,
 				"""
 						JabberPoint is a primitive slide-show program in Java(tm). It
