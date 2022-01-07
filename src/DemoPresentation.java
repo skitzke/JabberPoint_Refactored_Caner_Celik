@@ -13,6 +13,7 @@ class DemoPresentation extends Accessor {
     public void loadFile(Presentation presentation, String unusedFilename) {
         presentation.setTitle("Demo Presentation");
         Slide slide;
+        // changed to correct instructions regarding new keys changed
         slide = new Slide();
         slide.setTitle("JabberPoint");
         slide.append(1, "The Java prestentation tool");
@@ -44,6 +45,7 @@ class DemoPresentation extends Accessor {
         slide.append(2, "use File->Open from the menu.");
         slide.append(1, " ");
         slide.append(1, "This is the end of the presentation.");
+        // 3rd slide no longer shows errors because now shows the image inside the slide
         slide.append(new BitmapItem(1, "Images/JabberPoint.jpg"));
         presentation.append(slide);
     }
